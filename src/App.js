@@ -1,24 +1,47 @@
-import logo from './logo.svg';
+// src/App.js
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import Layout from './component/layout';
+// import Login from './component/Login';
+import Dashboard from './Page/DashBoard';
+import Leads from './Page/Leads';
 import './App.css';
+import Login from './Page/Login';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
+  const isAuthenticated = localStorage.getItem('isAuthenticated') === 'true';
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+          <ToastContainer position="top-right" autoClose={3000} />
+    <Router>
+      <Routes>
+        <Route path="/login" element={<Login />} />
+        
+        <Route 
+          path="/dashboard" 
+          element={
+            isAuthenticated ? 
+            <Layout><Dashboard /></Layout> :
+            <Navigate to="/login" />
+          } 
+        />
+        
+        <Route 
+          path="/leads" 
+          element={
+            isAuthenticated ? 
+            <Layout><Leads /></Layout> :
+            <Navigate to="/login" />
+          } 
+        />
+        
+        
+        <Route path="/" element={<Navigate to="/login" />} />
+      </Routes>
+    </Router>
+    </>
   );
 }
 

@@ -1,70 +1,242 @@
-# Getting Started with Create React App
+Lead Management CRM - Frontend Assignment
+Project Overview
+A clean and responsive Lead Management UI built with React.js and Bootstrap 5, simulating a basic Real Estate CRM system.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Tech Stack
+React 18.2 - For building the user interface
 
-## Available Scripts
+React Router DOM 6.8 - For moving between pages
 
-In the project directory, you can run:
+Bootstrap 5 - For styling and responsive design
 
-### `npm start`
+React Bootstrap - Bootstrap components ready for React
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Bootstrap Icons - For icons throughout the app
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+React Toastify - For pop-up notifications
 
-### `npm test`
+How to Set Up
+What you need installed
+Node.js (version 14 or higher)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+npm (comes with Node.js)
 
-### `npm run build`
+Steps to run the project
+bash
+# 1. Download the project
+git clone https://github.com/yourusername/lead-management-crm.git
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+# 2. Go into the project folder
+cd lead-management-crm
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+# 3. Install all required packages
+npm install
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+# 4. Start the app
+npm start
+After running these commands, the app will open automatically at http://localhost:3000
 
-### `npm run eject`
+Folder Structure
+text
+src/
+├── components/
+│   ├── AddLead.jsx           # Form for adding new leads
+│   ├── EditModal.jsx         # Popup for editing leads
+│   └── Layout.jsx            # Sidebar and navbar together
+├── pages/
+│   ├── Login.jsx             # Login screen
+│   ├── Dashboard.jsx         # Main dashboard with stats
+│   └── Leads.jsx             # Table showing all leads
+├── App.js                    # Sets up all routes
+└── index.js                  # Starting point
+Features Implemented
+Login Page
+Email and password fields with validation
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Both fields are required
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Clicking login takes you to the dashboard
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Clean and simple design with proper spacing
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Dashboard
+Shows three statistics cards:
 
-## Learn More
+Total Leads - 14
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+New Leads - 5
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Converted Leads - 3
 
-### Code Splitting
+Sidebar to navigate between pages
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Top navbar with the app name
 
-### Analyzing the Bundle Size
+Leads Table
+Displays leads with columns:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Name
 
-### Making a Progressive Web App
+Phone
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Email
 
-### Advanced Configuration
+Source
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+Status
 
-### Deployment
+Actions
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+Three example leads come pre-loaded
 
-### `npm run build` fails to minify
+Table is responsive and scrolls on mobile
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Search Functionality
+Type in the search box to filter leads by name
+
+Filters results in real-time as you type
+
+Case-insensitive search
+
+Status Badges
+Each status has a different color:
+
+New - Green badge
+
+Followup - Yellow badge
+
+Converted - Blue badge
+
+Add New Lead
+Click the "Add Lead" button to open the form
+
+Form fields:
+
+Name (required)
+
+Phone (required, 10 digits)
+
+Email (required, valid format)
+
+Source dropdown (99acres, Magicbricks, Facebook, Website)
+
+Status dropdown (New, Followup, Converted, Lost)
+
+Real-time validation with error messages
+
+Submit button stays disabled until all fields are valid
+
+Success message appears when lead is added
+
+Edit Lead
+Click the edit button on any row
+
+Modal opens with current information pre-filled
+
+Make changes and click save
+
+Success message appears when updated
+
+Delete Lead
+Click the delete button on any row
+
+Confirmation popup asks "Are you sure?"
+
+Click Yes to delete, No to cancel
+
+Success message appears when deleted
+
+Layout Component
+Combines sidebar and navbar into one reusable component
+
+Used on both Dashboard and Leads pages
+
+Highlights which page you are currently on
+
+Toast Notifications
+Green - Success (lead added, updated, deleted)
+
+Yellow - Warning (delete confirmation)
+
+Red - Error (validation failed)
+
+Empty State
+When no leads match the search or all leads are deleted
+
+Shows "No leads found" message
+
+Fully Responsive
+Works on phones, tablets, and desktops
+
+Sidebar collapses on smaller screens
+
+Table scrolls horizontally on mobile
+
+Cards stack vertically on small devices
+
+How to Use the App
+Step 1: Log in
+Email: anything@example.com
+
+Password: anything with 6 or more characters
+
+Click the Login button
+
+Step 2: View Dashboard
+See the three statistics cards
+
+Click "Leads" in the sidebar to manage leads
+
+Step 3: Work with Leads
+Action	How to do it
+View all leads	Scroll through the table
+Find a lead	Type name in search box
+Add a lead	Click "Add Lead" button, fill form, submit
+Edit a lead	Click edit button, update info, save
+Delete a lead	Click delete button, confirm deletion
+Features Checklist
+Login page with validation
+
+Dashboard with three stats cards
+
+Sidebar and navbar in one Layout component
+
+Leads table with sample data
+
+Real-time search filter
+
+Color-coded status badges
+
+Add lead form with validation
+
+Edit lead modal
+
+Delete with confirmation
+
+Toast notifications for all actions
+
+Empty state message
+
+Fully responsive design
+
+Responsive Behavior
+Mobile: Cards stack vertically, sidebar collapses, table scrolls horizontally
+
+Tablet: Two cards per row, sidebar shows icons and text
+
+Desktop: Full layout with all features visible
+
+Dependencies
+json
+{
+  "bootstrap": "^5.2.3",
+  "bootstrap-icons": "^1.10.3",
+  "react": "^18.2.0",
+  "react-bootstrap": "^2.7.0",
+  "react-dom": "^18.2.0",
+  "react-router-dom": "^6.8.0",
+  "react-toastify": "^11.0.5"
+}
+
+
+
