@@ -24,7 +24,7 @@ npm (comes with Node.js)
 Steps to run the project
 bash
 # 1. Download the project
-git clone https://github.com/yourusername/lead-management-crm.git
+git clone https://github.com/chetan9265/CRM-App.git
 
 # 2. Go into the project folder
 cd lead-management-crm
