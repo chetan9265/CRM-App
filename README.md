@@ -27,7 +27,6 @@ bash
 git clone https://github.com/chetan9265/CRM-App.git
 
 # 2. Go into the project folder
-cd lead-management-crm
 
 # 3. Install all required packages
 npm install
